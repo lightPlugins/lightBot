@@ -28,7 +28,7 @@ public class Events {
 
                 if(client.getUniqueIdentifier().equalsIgnoreCase("Nk/+so7FqTCx4RbHHfmpkLAcCcY=")) {
                     System.out.println("Willkommen " + client.getNickname() + " auf dem OCB Teamspeak");
-                    QueryManager.api.sendPrivateMessage(client.getId(), "Das ist ein test");
+                    QueryManager.api.sendPrivateMessage(client.getId(), "Das ist ein test " + client.getNickname());
                 } else {
                     System.out.println("Unbekannter User!");
                 }
