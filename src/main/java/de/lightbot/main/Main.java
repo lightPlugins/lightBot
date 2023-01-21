@@ -1,27 +1,20 @@
 package de.lightbot.main;
 
-import com.github.theholywaffle.teamspeak3.TS3Api;
-import com.github.theholywaffle.teamspeak3.TS3Config;
-import com.github.theholywaffle.teamspeak3.TS3Query;
+import de.lightbot.api.QueryManager;
+import de.lightbot.events.Events;
 
 public class Main {
 
+    public static QueryManager queryManager;
+
     public static void main(String[] args) {
 
-        final TS3Config config = new TS3Config();
-        config.setHost("116.202.129.62");
-        config.setFloodRate(TS3Query.FloodRate.UNLIMITED);
+        queryManager = new QueryManager();
+        queryManager.connectQuery();
 
-        final TS3Query query = new TS3Query(config);
-        query.connect();
+        Events events = new Events();
+        events.loadEvents();
 
-        final TS3Api api = query.getApi();
-        api.login("lightBot", "GKiBQOvf");
-        api.selectVirtualServerByPort(9987);
-        //api.setNickname("lightBot");
-
-
-
-        System.out.println("Hello world!");
+        System.out.println("Bot started!");
     }
 }
